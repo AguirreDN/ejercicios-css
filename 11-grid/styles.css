@@ -31,12 +31,24 @@ body {
   border-radius: 6px;
 }
 
-.obra:nth-child(1) .lienzo { background: linear-gradient(135deg, #f59e0b, #ef4444); }
-.obra:nth-child(2) .lienzo { background: linear-gradient(135deg, #94a3b8, #475569); }
-.obra:nth-child(3) .lienzo { background: linear-gradient(135deg, #fde047, #f59e0b); }
-.obra:nth-child(4) .lienzo { background: linear-gradient(135deg, #e2e8f0, #94a3b8); }
-.obra:nth-child(5) .lienzo { background: linear-gradient(135deg, #1e3a8a, #7c3aed); }
-.obra:nth-child(6) .lienzo { background: linear-gradient(135deg, #f97316, #b45309); }
+.obra:nth-child(1) .lienzo {
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+}
+.obra:nth-child(2) .lienzo {
+  background: linear-gradient(135deg, #94a3b8, #475569);
+}
+.obra:nth-child(3) .lienzo {
+  background: linear-gradient(135deg, #fde047, #f59e0b);
+}
+.obra:nth-child(4) .lienzo {
+  background: linear-gradient(135deg, #e2e8f0, #94a3b8);
+}
+.obra:nth-child(5) .lienzo {
+  background: linear-gradient(135deg, #1e3a8a, #7c3aed);
+}
+.obra:nth-child(6) .lienzo {
+  background: linear-gradient(135deg, #f97316, #b45309);
+}
 
 .obra h2 {
   font-size: 18px;
@@ -55,8 +67,15 @@ body {
    - gap: 16px
    - padding: 0 24px 24px
    fr es una fracción del espacio disponible. ¿Qué pasa si
-   escribís repeat(6, 1fr)?
+   escribís repeat(6, 1fr)? pone los elementos en la misma fila
    ============================================================ */
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 0 24px 24px;
+}
 
 /* ============================================================
    TODO 2 — Las tarjetas de las obras
@@ -67,6 +86,13 @@ body {
    - padding: 16px
    ============================================================ */
 
+.obra {
+  background-color: #ffffff;
+  border: 1px solid #e0d9cc;
+  border-radius: 8px;
+  padding: 16px;
+}
+
 /* ============================================================
    TODO 3 — La obra destacada
    A .destacada dale:
@@ -75,6 +101,10 @@ body {
    reacomodan las demás obras solas.
    ============================================================ */
 
+.destacada {
+  grid-column: span 2;
+}
+
 /* ============================================================
    TODO 4 — Experimento responsive
    Cambiá las columnas de la grilla por:
@@ -82,3 +112,7 @@ body {
    Achicá y agrandá la ventana: la grilla se adapta sola.
    Es la base de las galerías responsivas modernas.
    ============================================================ */
+
+.galeria {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
