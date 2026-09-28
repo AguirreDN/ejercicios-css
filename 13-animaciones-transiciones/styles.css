@@ -39,8 +39,8 @@ body {
 .campana {
   width: 20px;
   height: 20px;
-  border-radius: 50%;
-  background-color: #ffd166;
+  /*border-radius: 50%;*/
+  /*background-color: #ffd166;*/
   display: inline-block;
 }
 
@@ -84,8 +84,12 @@ h1 {
    A .btn dale:
    - transition: all 0.3s ease
    Probá: sacá esta línea, probá el hover del TODO 2, ponela
-   de vuelta. ¿Cuál es la diferencia?
+   de vuelta. ¿Cuál es la diferencia? la transicion suave
    ============================================================ */
+
+.btn {
+  transition: all 0.3s ease;
+}
 
 /* ============================================================
    TODO 2 — Botón que crece
@@ -93,6 +97,11 @@ h1 {
    - transform: scale(1.06)
    - background-color: #372f55
    ============================================================ */
+
+.btn:hover {
+  transform: scale(1.06);
+  background-color: #372f55;
+}
 
 /* ============================================================
    TODO 3 — El botón principal
@@ -103,6 +112,15 @@ h1 {
    Y a .btn-primario:hover:
    - box-shadow: 0 6px 20px rgba(124, 92, 255, 0.5)
    ============================================================ */
+
+.btn-primario {
+  background-color: #7c5cff;
+  border-color: #7c5cff;
+  color: #ffffff;
+}
+.btn-primario:hover {
+  box-shadow: 0 6px 20px rgba(124, 92, 255, 0.5);
+}
 
 /* ============================================================
    TODO 4 — Alerta que aparece
@@ -115,6 +133,20 @@ h1 {
    - animation: aparecer 0.6s ease-out
    Recargá la página: la alerta entra deslizándose.
    ============================================================ */
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 10;
+    transform: translateY(0);
+  }
+}
+.alerta {
+  animation: aparecer 0.6s ease-out;
+}
 
 /* ============================================================
    TODO 5 — Campana que se sacude
@@ -130,6 +162,27 @@ h1 {
    .campana:hover { animation: sacudir 0.4s ease; }
    ============================================================ */
 
+@keyframes sacudir {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+.campana:hover {
+  animation: sacudir 0.4s ease;
+}
+
 /* ============================================================
    TODO 6 — Texto que pulsa
    Definí la animación:
@@ -143,8 +196,22 @@ h1 {
    viene. Probá sacar el alternate: ¿qué cambia?
    ============================================================ */
 
+@keyframes pulsar {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.cargando {
+  animation: pulsar 1s ease-in-out infinite alternate;
+}
+
 /* ============================================================
     PARA PENSAR
    ¿Cuándo conviene transition y cuándo @keyframes? Poné un
    ejemplo de cada uno de los que hiciste acá.
+   transition: para animar un cambio entre dos estados
+   @keyframes: para crear una animación con varios pasos o que se ejecute automáticamente
    ============================================================ */
